@@ -8,6 +8,7 @@ namespace Api.DAL
 {
     public class ChangeClaimsRepository
     {
+
         private List<Claim> _claimes;
 
         public ChangeClaimsRepository()

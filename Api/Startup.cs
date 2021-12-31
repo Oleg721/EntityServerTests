@@ -16,6 +16,10 @@ using Api.SignalRHub;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Hosting;
+using Api.Contracts;
+using Api.Repository;
+using Api.Model;
+using Api.Service;
 
 namespace Api
 {
@@ -30,6 +34,8 @@ namespace Api
         {
             string connectionString = Configuration.GetConnectionString("ChatConnection");
 
+            services.AddScoped<IMessageRepository<Message>, MessageRepository>();
+            services.AddScoped<IMessageService, MessageService>();
             services.AddControllers();
             services.AddSignalR();
             //services.AddCors();

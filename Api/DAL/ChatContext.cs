@@ -13,6 +13,12 @@ namespace Api.DAL
         public ChatContext(DbContextOptions options) : base(options)
         { }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Message>()
+                .Property(f => f.Id)
+                .ValueGeneratedOnAdd();
+        }
 
     }
 
